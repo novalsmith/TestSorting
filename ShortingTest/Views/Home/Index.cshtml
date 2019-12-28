@@ -1,0 +1,93 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@*@model ShortingTest.Models.Data_REC*@
+ 
+
+ 
+    <p>
+        File : <br />
+        <a href="~/Content/source/unsorted-names-list.txt">unsorted-names-list.txt</a>
+        <br />
+        <a href="~/Content/source/sorted-names-list.txt">sorted-names-list.txt</a>
+    </p>
+
+    <div class="row">
+        @if (ViewBag.error != null)
+        {
+
+            <span class="alert alert-danger"> @ViewBag.error  </span>
+        }
+
+
+
+        
+
+
+        <div class="col-md-4">
+
+
+
+            <h3>List From unsorted.txt</h3>
+
+            <table class="table table-bordered table-hover">
+                <th>
+                    No
+                </th>
+                <th>
+                    Nama
+                </th>
+
+                @{
+                    int i = 1;
+
+                    foreach (var row in ViewBag.Unsorted)
+                    {
+                        <tr>
+                            <td> @i </td>
+                            <td>  @row.FullName </td>
+                        </tr>
+                        i += 1;
+                    }
+
+
+                }
+
+
+            </table>
+        </div>
+
+
+        <div class="col-md-8">
+
+            <h3>List From sorted.txt</h3>
+
+            <table class="table table-bordered table-hover">
+                <th>
+                    No
+                </th>
+                <th>
+                    Nama
+                </th>
+
+                @{
+                    int j = 1;
+
+                    foreach (var row in ViewBag.Sorted)
+                    {
+                        <tr>
+                            <td> @j </td>
+                            <td>  @row.FullName </td>
+                        </tr>
+                        j += 1;
+                    }
+
+
+                }
+
+
+            </table>
+
+        </div>
+    </div>
